@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-const calculateScore = () => {
+const calculateScore = (player) => {
     switch (player.position) {
         case 'QB':
             return (
@@ -11,33 +11,50 @@ const calculateScore = () => {
                 player.stats.rushing.fumbles * -3
             )
         case 'RB':
-            break
+            return (
+                player.stats.rushing.yards / 10 +
+                player.stats.rushing.touchdowns * 6 +
+                player.stats.rushing.fumbles * -3 +
+                player.stats.receiving.receptions * 1 +
+                player.stats.receiving.yards / 10 +
+                player.stats.receiving.touchdowns * 6 +
+                player.stats.receiving.fumbles * -3 +
+                player.stats.return.kickreturn.yards / 15 +
+                player.stats.return.kickreturn.touchdowns * 6 +
+                player.stats.return.kickreturn.fumbles * -3 +
+                player.stats.return.puntreturn.yards / 15 +
+                player.stats.return.puntreturn.touchdowns * 6 +
+                player.stats.return.puntreturn.fumbles * -3
+            )
         case 'WR':
-            break
+            return (
+                player.stats.rushing.yards / 10 +
+                player.stats.rushing.touchdowns * 6 +
+                player.stats.rushing.fumbles * -3 +
+                player.stats.receiving.receptions * 1 +
+                player.stats.receiving.yards / 10 +
+                player.stats.receiving.touchdowns * 6 +
+                player.stats.receiving.fumbles * -3 +
+                player.stats.return.kickreturn.yards / 15 +
+                player.stats.return.kickreturn.touchdowns * 6 +
+                player.stats.return.kickreturn.fumbles * -3 +
+                player.stats.return.puntreturn.yards / 15 +
+                player.stats.return.puntreturn.touchdowns * 6 +
+                player.stats.return.puntreturn.fumbles * -3
+            )
+
         case 'TE':
-            break
+            return (
+                player.stats.receiving.receptions * 1 +
+                player.stats.receiving.yards / 10 +
+                player.stats.receiving.touchdowns * 6 +
+                player.stats.receiving.fumbles * -3
+            )
         case 'K':
-            break
-        default:
             return (0)
+        default:
+            return ('This is not a valid player')
     }
-}
-
-let player = {
-    name: '',
-    position: '',
-    team: '',
-    stats: {
-        passing: {
-            attempts: '',
-            completions: '',
-            yards: '',
-            touchdowns: '',
-            interceptions: ''
-        },
-        rushing: { attempts: '', yards: '', touchdowns: '', fumbles: '' }
-    }
-
 }
 
 module.exports = calculateScore
