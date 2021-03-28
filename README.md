@@ -1,4 +1,4 @@
-# Fantasy Scoring
+f# Fantasy Scoring
 
 ## Instructions
 In the initial commit to this project, you have been provided with a basic project setup as well as a set of tests which currently fail. Your task is to create a `calculateScore` function which will properly calculate the fantasy score for all known positions, returning 0 when the position is not one of the ones laid out below.
